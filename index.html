@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+
+    </style>
+</head>
+
+<body onload="countTime()">
+    <div>距离结束时间还有：
+        <div id="time"></div>
+    </div>
+    <script type="text/javascript">
+        function countTime() {
+            var timeEnd = new Date(2018, 01, 01),
+                timeStart = new Date();
+            var timeDistance = timeEnd.getTime() - timeStart.getTime();
+            var d, h, m, s;
+            if (timeDistance > 0) {
+                d = Math.floor(timeDistance / 1000 / 60 / 60 / 24);
+                h = Math.floor(timeDistance / 1000 / 60 / 60 % 24);
+                m = Math.floor(timeDistance / 1000 / 60 % 60);
+                s = Math.floor(timeDistance / 1000 % 60);
+            }
+            document.getElementById("time").innerHTML = d + '天' + h + '时' + m + '分' + s + '秒';
+            setTimeout(countTime, 1000);
+        }
+    </script>
+</body>
+
+</html>
